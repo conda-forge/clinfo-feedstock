@@ -1,5 +1,5 @@
 {% set name = "clinfo" %}
-{% set version = "3.0.21.02.21" %}
+{% set version = "3.1.26.09.26" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,16 @@ package:
 
 source:
   url: https://github.com/Oblomov/clinfo/archive/{{ version }}.tar.gz
-  sha256: e52f5c374a10364999d57a1be30219b47fb0b4f090e418f2ca19a0c037c1e694
+  sha256: e944132329c6613b686ba0fcd373b15ebb553c367a01a734af8519ddb095c01f
 
 build:
   number: 0
-  skip: True  # [win]
+  skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - make
   host:
     - ocl-icd  # [linux]
